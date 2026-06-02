@@ -1,0 +1,12 @@
+{
+  "name": "Remix: DesignCraft Studio umbau",
+  "description": "KI-gestützter Konfigurator für exklusives Interior-Design und Fassadenplanung.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "AI Vision Analysis",
+    "Room Configuration",
+    "Photorealistic Visualization"
+  ]
+}
