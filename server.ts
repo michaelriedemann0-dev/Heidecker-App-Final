@@ -4,22 +4,27 @@ import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import multer from "multer";
-import { GoogleGenAI } from '@google/generative-ai';
+// Vorher: import { GoogleGenAI } from '@google/generative-ai';
+// Nachher:
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Initialize Gemini Client Lazily
-let genAIClient: GoogleGenAI | null = null;
+let genAIClient: GoogleGenerativeAI | null = null;
+
 const getGeminiClient = () => {
   if (!genAIClient) {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       throw new Error("GEMINI_API_KEY environment variable is missing.");
     }
-    genAIClient = new GoogleGenAI({ apiKey });
+    // Beim stabilen SDK wird der Key direkt als String übergeben, 
+    // nicht als Objekt { apiKey }
+    genAIClient = new GoogleGenerativeAI(apiKey);
   }
-  return genAIClient;
+  return genAIClient; // (Falls das in deinem Code danach kam)
 };
 
 // Multer setup for high-res images from camera/uploads
