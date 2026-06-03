@@ -5,15 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npx tsc server.ts --outDir dist",
+    "build": "vite build && npx tsc server.ts --outDir dist --target es2022 --module esnext --moduleResolution node --esModuleInterop --skipLibCheck",
     "preview": "vite preview",
     "start": "node dist/server.cjs"
   },
   "dependencies": {
+    "@google/genai": "^0.1.1",
     "express": "^4.19.2",
     "framer-motion": "^11.2.10",
     "lucide-react": "*",
     "motion": "*",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1"
@@ -21,9 +24,10 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
     "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.3.1",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.4.2",
