@@ -22,7 +22,7 @@ const getGeminiClient = () => {
     }
     // Beim stabilen SDK wird der Key direkt als String übergeben, 
     // nicht als Objekt { apiKey }
-    genAIClient = new GoogleGenAI(apiKey);
+    genAIClient = new GoogleGenAI();
   }
   return genAIClient; // (Falls das in deinem Code danach kam)
 };
