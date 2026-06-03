@@ -157,10 +157,13 @@ async function startServer() {
           description: textResponse || `Der Raum wurde erfolgreich im Stil '${style}' transformiert.`
         });
       } else {
-        return res.status(500).json({
-          error: "Das Modell hat bei der Raumtransformation kein Bild zurückgegeben.",
-          details: textResponse
-        });
+    // Production
+    const distPath = path.join(process.cwd(), 'dist');
+    app.use(express.static(distPath));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(distPath, 'index.html'));
+    });
+});
       }
     } catch (error: any) {
       console.error("Fehler bei der Raumtransformation:", error);
