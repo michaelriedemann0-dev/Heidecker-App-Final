@@ -4,7 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import multer from "multer";
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI } from '@google/generative-ai';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
