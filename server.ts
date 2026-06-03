@@ -4,15 +4,15 @@ import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import multer from "multer";
-// Vorher: import { GoogleGenAI } from '@google/generative-ai';
+// Vorher: import { GoogleGenAI } from '@google/genai';
 // Nachher:
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Initialize Gemini Client Lazily
-let genAIClient: GoogleGenerativeAI | null = null;
+let genAIClient: GoogleGenAI | null = null;
 
 const getGeminiClient = () => {
   if (!genAIClient) {
@@ -22,7 +22,7 @@ const getGeminiClient = () => {
     }
     // Beim stabilen SDK wird der Key direkt als String übergeben, 
     // nicht als Objekt { apiKey }
-    genAIClient = new GoogleGenerativeAI(apiKey);
+    genAIClient = new GoogleGenAI(apiKey);
   }
   return genAIClient; // (Falls das in deinem Code danach kam)
 };
