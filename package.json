@@ -10,7 +10,7 @@
     "start": "node dist/server.cjs"
   },
   "dependencies": {
-    "@google/genai": "^0.1.0",
+    "@google/generative-ai": "^0.1.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "express": "^4.19.2",
